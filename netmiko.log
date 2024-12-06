@@ -1,0 +1,10 @@
+ERROR:netmiko:Error connecting to 10.2.0.101: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.2.0.101:22
+
+
