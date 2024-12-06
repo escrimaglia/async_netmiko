@@ -6,7 +6,7 @@ logger = logging.getLogger("netmiko")
 from data import devices, commands
 
 # Methods
-def netmiko_connection(device, commands):
+def netmiko_connection(device: dict, commands: list[str]) -> str:
     try:
         connection = ConnectHandler(**device)
         output = connection.send_multiline(commands=commands)

@@ -18,7 +18,9 @@ Async Netmiko is a repository that contains tests I have conducted to differenti
 
 The outputs directory contains the results of each test, and as can be observed, the results are notably different.
 
-To run the test, iI used the EVE Pro simulator deployed on Google Cloud, and a lab with five Cisco IOS devices. To connect to the devices, I configured SSH Bastion Host on my Mac.
+To run the test, I used the EVE Pro simulator deployed on Google Cloud, a lab with five Cisco IOS devices and each host connection runs in a different thread.
+
+To connect to the devices, I configured SSH Bastion Host on my Mac.
 
 ### SSH JumpHost configuration
 
