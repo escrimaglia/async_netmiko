@@ -1,0 +1,39 @@
+# Async Netmico
+
+![plot](./imagen/netmiko.png)
+
+## IaC - Infraestructure as Code
+
+It refers to the practice of managing and provisioning computing infrastructure (such as servers, networks, and databases) through code and automation rather than through manual processes. This allows infrastructure to be treated the same way as application code, enabling it to be versioned, tested, and deployed using software development practices.
+
+### Network Automation
+
+As part of IaC, Network Automation refers to the use of software to automatically manage, configure, test, deploy, and operate network devices and services. It replaces manual tasks with programmatic workflows and scripts, reducing human intervention, minimizing errors, and increasing efficiency in network management.
+
+This approach is increasingly important in modern networking, especially in large-scale environments such as cloud infrastructures, data centers, and enterprise networks.
+
+### Async Netmiko
+
+Async Netmiko is a repository that contains tests I have conducted to differentiate the performance between running Netmiko synchronously versus asynchronously.
+
+The outputs directory contains the results of each test, and as can be observed, the results are notably different.
+
+To run the test, iI used the EVE Pro simulator deployed on Google Cloud, and a lab with five Cisco IOS devices. To connect to the devices, I configured an SSH JumpHost on my Mac.
+
+### SSH JumpHost configuration
+
+- SSH Configuration file for netmiko & bastion host
+host jumphost
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+  user root
+  hostname xxxx.octupus.com
+
+host 10.2.0.* !jumphost
+  ProxyCommand ssh -F ~/.ssh/config -W %h:%p jumphost
+
+host 10.2.0.*
+  KexAlgorithms +diffie-hellman-group1-sha1
+  Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
+  HostKeyAlgorithms=+ssh-dss
+  MACs hmac-sha2-512-etm@openssh.com, hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com, hmac-sha2-512,hmac-sha2-256, umac-128@openssh.com, hmac-sha1,hmac-sha1-96
