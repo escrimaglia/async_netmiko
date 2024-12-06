@@ -36,4 +36,4 @@ host 10.2.0.*
   KexAlgorithms +diffie-hellman-group1-sha1  
   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc  
   HostKeyAlgorithms=+ssh-dss  
-  MACs <hmac-sha2-512-etm@openssh.com>, <hmac-sha2-256-etm@openssh.com>,umac-128-etm@openssh.com, hmac-sha2-512,hmac-sha2-256, umac-128@openssh.com, hmac-sha1,hmac-sha1-96  
+  
