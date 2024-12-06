@@ -1,6 +1,6 @@
 # Async Netmico
 
-![plot](./imagen/netmiko.png)
+![plot](imagen/netmiko.png)
 
 ## IaC - Infraestructure as Code
 
@@ -22,18 +22,18 @@ To run the test, iI used the EVE Pro simulator deployed on Google Cloud, and a l
 
 ### SSH JumpHost configuration
 
-- SSH Configuration file for netmiko & bastion host
-host jumphost
-  IdentityFile ~/.ssh/id_rsa
-  IdentitiesOnly yes
-  user root
-  hostname xxxx.octupus.com
+- SSH Configuration file for netmiko & bastion host  
+host jumphost  
+  IdentityFile ~/.ssh/id_rsa  
+  IdentitiesOnly yes  
+  user root  
+  hostname xxxx.octupus.com  
 
-host 10.2.0.* !jumphost
-  ProxyCommand ssh -F ~/.ssh/config -W %h:%p jumphost
+host 10.2.0.* !jumphost  
+  ProxyCommand ssh -F ~/.ssh/config -W %h:%p jumphost  
 
-host 10.2.0.*
-  KexAlgorithms +diffie-hellman-group1-sha1
-  Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
-  HostKeyAlgorithms=+ssh-dss
-  MACs hmac-sha2-512-etm@openssh.com, hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com, hmac-sha2-512,hmac-sha2-256, umac-128@openssh.com, hmac-sha1,hmac-sha1-96
+host 10.2.0.*  
+  KexAlgorithms +diffie-hellman-group1-sha1  
+  Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc  
+  HostKeyAlgorithms=+ssh-dss  
+  MACs <hmac-sha2-512-etm@openssh.com>, <hmac-sha2-256-etm@openssh.com>,umac-128-etm@openssh.com, hmac-sha2-512,hmac-sha2-256, umac-128@openssh.com, hmac-sha1,hmac-sha1-96  
