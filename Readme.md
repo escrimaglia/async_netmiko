@@ -42,6 +42,6 @@ host 10.2.0.*
 
 #### Test time for five devices and two commands per device
 
-Total time sync netmiko test: 0:00:30.881254
-Total time async netmiko test: 0:00:06.516488
+Total time sync netmiko test: 0:00:30.881254  
+Total time async netmiko test: 0:00:06.516488  
   
