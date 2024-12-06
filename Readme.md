@@ -18,15 +18,16 @@ Async Netmiko is a repository that contains tests I have conducted to differenti
 
 The outputs directory contains the results of each test, and as can be observed, the results are notably different.
 
-To run the test, iI used the EVE Pro simulator deployed on Google Cloud, and a lab with five Cisco IOS devices. To connect to the devices, I configured an SSH JumpHost on my Mac.
+To run the test, iI used the EVE Pro simulator deployed on Google Cloud, and a lab with five Cisco IOS devices. To connect to the devices, I configured SSH Bastion Host on my Mac.
 
 ### SSH JumpHost configuration
 
-- SSH Configuration file for netmiko & bastion host  
+SSH Configuration file for netmiko & bastion host
+
 host jumphost  
   IdentityFile ~/.ssh/id_rsa  
   IdentitiesOnly yes  
-  user root  
+  user xxxx  
   hostname xxxx.octupus.com  
 
 host 10.2.0.* !jumphost  
@@ -36,4 +37,11 @@ host 10.2.0.*
   KexAlgorithms +diffie-hellman-group1-sha1  
   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc  
   HostKeyAlgorithms=+ssh-dss  
+
+### Results
+
+#### Test time for five devices and two commands per device
+
+Total time sync netmiko test: 0:00:30.881254
+Total time async netmiko test: 0:00:06.516488
   
