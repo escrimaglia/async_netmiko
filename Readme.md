@@ -1,4 +1,4 @@
-# Async Netmico Test
+# Async Netmiko Test
 
 ![plot](imagen/netmiko.png)
 
