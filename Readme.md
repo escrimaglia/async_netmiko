@@ -1,4 +1,4 @@
-# Async Netmico
+# Async Netmico Test
 
 ![plot](imagen/netmiko.png)
 
@@ -44,4 +44,8 @@ host 10.2.0.*
 
 Test time sync netmiko: 0:00:30.881254  
 Test time async netmiko: 0:00:06.516488  
+
+Hope this helps in your automation journey  
+
+#### Ed Scrimaglia
   
