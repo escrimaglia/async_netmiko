@@ -3,14 +3,14 @@ from concurrent.futures import ThreadPoolExecutor
 from netmiko import ConnectHandler
 from datetime import datetime as dt
 import logging
-logging.basicConfig(filename='netmiko.log', level=logging.DEBUG)
+logging.basicConfig(filename='netmiko.log', level=logging.INFO)
 logger = logging.getLogger("netmiko")
 from data import Data
-from model import Model
+from model import Model, Devices, Commands
 from pydantic import ValidationError
+from typing import List
 
 class AsyncNetmiko:
-
     def netmiko_connection(self, device: dict, commands: list[str]) -> str:
         try:
             connection = ConnectHandler(**device)
@@ -26,14 +26,13 @@ class AsyncNetmiko:
         result = await loop.run_in_executor(executor, self.netmiko_connection, device, commands)
         return result
 
-    async def main(self, devices: list[dict], commands: list) -> list[str]:
-        # ThreadPoolExecutor para las tareas en paralelo
+    async def main(self, devices: List[Devices], commands: dict) -> list[str]:
         with ThreadPoolExecutor(max_workers=10) as executor:
-            tasks = [self.run_device_command(device, executor, commands=commands) for device in devices]
+            tasks = [self.run_device_command(device, executor, commands=commands['commands']) for device in devices]
             results = await asyncio.gather(*tasks)
             return results
         
-    def data_validation(self, devices: list[dict], commands: list[str]) -> None:
+    def data_validation(self, devices: List[Devices], commands: Commands) -> None:
         try:
             Model(devices=devices, commands=commands)
         except ValidationError as error:

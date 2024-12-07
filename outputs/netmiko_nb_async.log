@@ -1,4 +1,10 @@
--> show ip int brief
+-> Host 10.2.0.101
+-> Host 10.2.0.102
+-> Host 10.2.0.103
+-> Host 10.2.0.104
+-> Host 10.2.0.105
+Output from 10.2.0.101:
+show ip int brief
 Interface              IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0     10.2.0.101      YES NVRAM  up                    up      
 GigabitEthernet0/1     unassigned      YES unset  up                    up      
@@ -47,7 +53,9 @@ Primary Secondary Type              Ports
 ------- --------- ----------------- ------------------------------------------
 
 SW-CORE_1#
--> show ip int brief
+
+Output from 10.2.0.102:
+show ip int brief
 Interface              IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0     10.2.0.102      YES NVRAM  up                    up      
 GigabitEthernet0/1     unassigned      YES unset  up                    up      
@@ -96,7 +104,9 @@ Primary Secondary Type              Ports
 ------- --------- ----------------- ------------------------------------------
 
 SW-CORE_2#
--> show ip int brief
+
+Output from 10.2.0.103:
+show ip int brief
 Interface              IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0     10.2.0.103      YES NVRAM  up                    up      
 GigabitEthernet0/1     unassigned      YES unset  up                    up      
@@ -136,7 +146,9 @@ Primary Secondary Type              Ports
 ------- --------- ----------------- ------------------------------------------
 
 SW-Bld_A#
--> show ip int brief
+
+Output from 10.2.0.104:
+show ip int brief
 Interface              IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0     10.2.0.104      YES NVRAM  up                    up      
 GigabitEthernet0/1     unassigned      YES unset  up                    up      
@@ -174,7 +186,9 @@ Primary Secondary Type              Ports
 ------- --------- ----------------- ------------------------------------------
 
 SW-Bld_B#
--> show ip int brief
+
+Output from 10.2.0.105:
+show ip int brief
 Interface              IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0     10.2.0.105      YES NVRAM  up                    up      
 GigabitEthernet0/1     unassigned      YES unset  up                    up      
@@ -212,4 +226,5 @@ Primary Secondary Type              Ports
 ------- --------- ----------------- ------------------------------------------
 
 SW-Data_Center#
-Tiempo total: 0:00:07.996293
+
+Total time: 0:00:07.158107

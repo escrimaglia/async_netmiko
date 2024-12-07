@@ -1,10 +1,10 @@
 from netmiko import ConnectHandler
 import logging
 from datetime import datetime as dt
-logging.basicConfig(filename='netmiko.log', level=logging.DEBUG)
+logging.basicConfig(filename='netmiko.log', level=logging.INFO)
 logger = logging.getLogger("netmiko")
 from data import Data
-from model import Model
+from model import Model, Devices, Commands
 from pydantic import ValidationError
 
 class SyncNetmiko:
@@ -18,7 +18,7 @@ class SyncNetmiko:
             logger.error(f"Error connecting to {device['host']}: {e}")
             return f"Error connecting to {device['host']}: {e}"
 
-    def data_validation(self, devices: list[dict], commands: list[str]) -> None:
+    def data_validation(self, devices: list[Devices], commands: Commands) -> None:
         try:
             Model(devices=devices, commands=commands)
         except ValidationError as error:
@@ -31,7 +31,7 @@ class SyncNetmiko:
             start = dt.now()
             for device in data.devices:
                 f.write(f"-> Host {device['host']}\n")
-                output = self.netmiko_connection(device, commands=data.commands)
+                output = self.netmiko_connection(device, commands=data.commands['commands'])
                 f.write(f"Output from {device['host']}:\n{output}\n\n")
             end = dt.now()
             f.write(f"Total time: {end - start}")

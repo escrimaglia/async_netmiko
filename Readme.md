@@ -18,7 +18,14 @@ Async Netmiko is a repository that contains tests I have conducted to differenti
 
 The outputs directory contains the results of each test, and as can be observed, the results are notably different.
 
-To run the test, I used the EVE Pro simulator deployed on Google Cloud, a lab with five Cisco IOS devices and each host connection runs in a different thread.
+To conduct the test, I utilized the EVE-NG Pro simulator hosted on Google Cloud, setting up a lab environment with five Cisco IOS devices.
+
+#### Sync, Async Multi-Thread and Non-Blocking Async
+
+- Sync Mode: Tasks are executed sequentially, one after the other. Each task must complete before the next one starts. The program waits for a task to finish before moving on.
+- Async Multi-Thread Mode: Involves creating multiple threads within a process. Threads can run concurrently, sharing memory and resources. Python threads are managed by the OS, but the GIL (Global Interpreter Lock) restricts true parallel execution of Python in a single process at a time.
+- Non-Blocking Async Mode: Uses an event loop to manage tasks cooperatively in a single thread. Tasks voluntarily yield control using await during I/O or other non-blocking operations. No threads are created; instead, the event loop interleaves tasks during await points and GIL is not an issue.
+- Python 3.12 has improved performance for the GIL and threading, but the fundamental limitations of the GIL remain.
 
 ### Running as script
 
