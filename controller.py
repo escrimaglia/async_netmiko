@@ -1,11 +1,10 @@
 from fastapi import Depends, FastAPI, Request
 import pytz
 from data import Data
-from model import Model
 from async_serv import AsyncNetmiko
 from sync_serv import SyncNetmiko
 
-#local_timezone = pytz.timezone('America/Argentina/Buenos_Aires')
+local_timezone = pytz.timezone('America/Argentina/Cordoba')
 app = FastAPI(title="Netmiko", description="Sync and Async Netmiko", version="1.0.0", summary="Automate Network Devices with Netmiko")
 
 
