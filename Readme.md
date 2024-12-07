@@ -34,7 +34,8 @@ Note: To connect to the devices, I configured SSH Bastion Host on my Mac.
 From your CLI execute the following:
 
 - `python3 sync_serv.py` demonstrates synchronous operations.
-- `python3 async_serv.py` demonstrates asynchronous operations.
+- `python3 async_serv.py` demonstrates asynchronous multi-thread operations.
+- `python3 nb_async_serv.py` demonstrates non-blocking asynchronous operations.
 
 #### SSH JumpHost configuration
 
@@ -58,7 +59,8 @@ host 10.2.0.*
 
 I configured a FastAPI project with two endpoints:
 
-- `/api/v1/netmiko/async` demonstrates asynchronous operations.
+- `/api/v1/netmiko/async` demonstrates asynchronous multi-thread operations.
+- `/api/v1/netmiko/nb-async` demonstrates non-blocking asynchronous operations.
 - `/api/v1/netmiko/sync` demonstrates synchronous operations.
 
 To launch the application, execute the following command in your CLI:
@@ -72,8 +74,9 @@ This project demonstrates how to integrate asynchronous Netmiko operations withi
 
 #### Test time for five devices and two commands per device
 
-Output sync netmiko: {'result': 'Tiempo total: 0:00:30.678405'}  
-Output async netmiko: {'result': 'Tiempo total: 0:00:07.157979'}  
+Sync netmiko: {'result': 'Tiempo total: 0:00:30.678405'}  
+Async Multi-Thread netmiko: {'result': 'Tiempo total: 0:00:07.157979'}  
+Non-Blocking Async netmiko:{'result': 'Tiempo total: 0:00:10.126575'}
 
 Hope this helps in your automation journey  
 
