@@ -74,9 +74,9 @@ This project demonstrates how to integrate asynchronous Netmiko operations withi
 
 #### Test time for five devices and two commands per device
 
-Sync netmiko: {'result': 'Tiempo total: 0:00:30.678405'}  
-Async Multi-Thread netmiko: {'result': 'Tiempo total: 0:00:07.157979'}  
-Non-Blocking Async netmiko:{'result': 'Tiempo total: 0:00:10.126575'}
+Sync netmiko: {'result': 'Tiempo total: 0:00:29.834032'}  
+Async Multi-Thread netmiko: {'result': 'Tiempo total: 0:00:06.886019'}  
+Non-Blocking Async netmiko: {'result': 'Tiempo total: 0:00:07.685438'}  
 
 Hope this helps in your automation journey  
 

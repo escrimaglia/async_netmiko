@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Dict
 
 class Devices(BaseModel):
@@ -6,7 +6,7 @@ class Devices(BaseModel):
     username: str
     password: str
     device_type: str
-    port: int | None = None
+    port: int | None = Field(default=22)
     ssh_config_file: str | None = None
 
 class Commands(BaseModel):
