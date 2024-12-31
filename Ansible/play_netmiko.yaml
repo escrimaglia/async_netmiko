@@ -1,0 +1,30 @@
+# Playbook to get the configuration of the network devices
+# Ed Scrimaglia
+
+---
+- name: Get Configuration of Network Devices
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+
+  vars:
+    cli:
+      host: "{{ ansible_host }}"
+      username: "{{ ansible_ssh_user }}"
+      password: "{{ ansible_password }}"
+      device_type: "{{ netmiko_device_type }}"
+      ssh_config_file: "{{ ssh_config_file }}"
+  
+  tasks:
+    - name: Get Configuration
+      async_netmiko_module:
+        device: "{{ cli }}"
+        commands: 
+          - 'show ip int brief'
+          - 'show vlan'
+      register: output
+
+    - name: Print Output
+      ansible.builtin.debug:
+        var: output
+        
