@@ -22,10 +22,14 @@ To conduct the test, I utilized the EVE-NG Pro simulator hosted on Google Cloud,
 
 #### Sync, Async Multi-Thread and Non-Blocking Async
 
-- Sync Mode: Tasks are executed sequentially, one after the other. Each task must complete before the next one starts. The program waits for a task to finish before moving on.
-- Async Multi-Thread Mode: Involves creating multiple threads within a process. Threads can run concurrently, sharing memory and resources. Python threads are managed by the OS, but the GIL (Global Interpreter Lock) restricts true parallel execution of Python in a single process at a time.
-- Non-Blocking Async Mode: Uses an event loop to manage tasks cooperatively in a single thread. Tasks voluntarily yield control using await during I/O or other non-blocking operations. No threads are created; instead, the event loop interleaves tasks during await points and GIL is not an issue.
-- Python 3.12 has improved performance for the GIL and threading, but the fundamental limitations of the GIL remain.
+| Mode                    | Description |
+| :---------------------- | :---------- |
+| Sync Mode               | Tasks are executed sequentially, one after the other. Each task must complete before the next one starts. The program waits for a task to finish before moving on. |
+| Async Multi-Thread Mode | Involves creating multiple threads within a process. Threads can run concurrently, sharing memory and resources. Python threads are managed by the OS, but the GIL (Global Interpreter Lock) restricts true parallel execution of Python in a single process at a time. |
+| Non-Blocking Async Mode | Uses an event loop to manage tasks cooperatively in a single thread. Tasks voluntarily yield control using await during I/O or other non-blocking operations. No threads are created; instead, the event loop interleaves tasks during await points and GIL is not an issue. |
+
+> [!WARNING]
+> Python 3.12 has improved performance for the GIL and threading, but the fundamental limitations of the GIL remain.
 
 > [!IMPORTANT]
 > Device connection details and commands common to all scripts are contained in [Scripts/data.py](Scripts/data.py)
