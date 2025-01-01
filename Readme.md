@@ -94,13 +94,15 @@ When running my playbook, it takes approximately 10 seconds for Ansible to execu
 
 ### Results
 
-#### Test time for five devices and two commands per device
+**Test time for five devices and two commands per device:**
 
-Sync netmiko: `{'result': 'Tiempo total: 0:00:29.834032'}`
-Async Multi-Thread netmiko: `{'result': 'Tiempo total: 0:00:06.886019'}`
-Non-Blocking Async netmiko: `{'result': 'Tiempo total: 0:00:07.685438'}`
-Ansible with sync_netmiko Ansible module: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`
-Ansible with async_netmiko Ansible module: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`
+| Test | Run Time |
+| :--- | :------- |
+| Sync netmiko                              | `{'result': 'Tiempo total: 0:00:29.834032'}` |
+| Async Multi-Thread netmiko                | `{'result': 'Tiempo total: 0:00:06.886019'}` |
+| Non-Blocking Async netmiko                | `{'result': 'Tiempo total: 0:00:07.685438'}` |
+| Ansible with sync_netmiko Ansible module  | `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds` |
+| Ansible with async_netmiko Ansible module | `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds` |
 
 Hope this helps in your automation journey  
 
