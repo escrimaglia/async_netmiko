@@ -2,7 +2,7 @@
 
 ![plot](imagen/netmiko.png)
 
-## IaC - Infraestructure as Code
+## IaC - Infrastructure as Code
 
 It refers to the practice of managing and provisioning computing infrastructure (such as servers, networks, and databases) through code and automation rather than through manual processes. This allows infrastructure to be treated the same way as application code, enabling it to be versioned, tested, and deployed using software development practices.
 
