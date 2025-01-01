@@ -75,7 +75,7 @@ This project demonstrates how to integrate asynchronous Netmiko operations withi
 
 ### Ansible and Netmiko
 
-I have also added tests with Ansible to observe the behavior of Netmiko running as an `Ansible Module`. In addition to demonstrating how an Ansible module is built, I thought it was worthwhile to conduct these tests since the results show how Ansible handles concurrency. Therefore, whether Netmiko runs synchronously or asynchronously becomes irrelevant.
+I have also added tests with Ansible to observe the behavior of Netmiko running as an `Ansible module`. In addition to demonstrating how an Ansible module is built, I thought it was worthwhile to conduct these tests since the results show how Ansible handles concurrency. Therefore, whether Netmiko runs synchronously or asynchronously becomes irrelevant.
 
 Why would one run Netmiko as an `Ansible module` when there are so many modules available in the community? In most cases, you can probably find an existing module that fits your needs. However, I have personally had to create my own modules to automate older devices, such as Siemens industrial equipment or Cisco Systems' legacy yet still operational Wireless LAN Controllers.
 
