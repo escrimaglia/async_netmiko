@@ -90,7 +90,7 @@ In the Ansible folder, you will find a playbook and two Ansible modules that can
 > callbacks_enabled = timer
 > ```
 
-For my playbook there is aprox 10 seconds it's takes to Ansible to executes the other tasks.
+When running my playbook, it takes approximately 10 seconds for Ansible to execute the other tasks.
 
 ### Results
 
