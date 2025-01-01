@@ -75,9 +75,9 @@ This project demonstrates how to integrate asynchronous Netmiko operations withi
 
 ### Ansible and Netmiko
 
-I have also added tests with Ansible to observe the behavior of Netmiko running as an `Ansible Module`. In addition to demonstrating how an ansible module is built, I thought it was worthwhile to conduct these tests since the results show how Ansible handles concurrency. Therefore, whether Netmiko runs synchronously or asynchronously becomes irrelevant.
+I have also added tests with Ansible to observe the behavior of Netmiko running as an `Ansible Module`. In addition to demonstrating how an Ansible module is built, I thought it was worthwhile to conduct these tests since the results show how Ansible handles concurrency. Therefore, whether Netmiko runs synchronously or asynchronously becomes irrelevant.
 
-Why would one run Netmiko as an `ansible module` when there are so many modules available in the community? In most cases, you can probably find an existing module that fits your needs. However, I have personally had to create my own modules to automate older devices, such as Siemens industrial equipment or Cisco Systems' legacy yet still operational Wireless LAN Controllers.
+Why would one run Netmiko as an `Ansible module` when there are so many modules available in the community? In most cases, you can probably find an existing module that fits your needs. However, I have personally had to create my own modules to automate older devices, such as Siemens industrial equipment or Cisco Systems' legacy yet still operational Wireless LAN Controllers.
 
 As mentioned earlier, `Ansible manages concurrency (forks)`, as demonstrated by the test results.
 
@@ -96,11 +96,11 @@ For my playbook there is aprox 10 seconds it's takes to Ansible to executes the 
 
 #### Test time for five devices and two commands per device
 
-Sync netmiko: `{'result': 'Tiempo total: 0:00:29.834032'}`  
-Async Multi-Thread netmiko: `{'result': 'Tiempo total: 0:00:06.886019'}`  
-Non-Blocking Async netmiko: `{'result': 'Tiempo total: 0:00:07.685438'}`  
-Ansible with sync_netmiko ansible mudule: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`  
-Ansible with async_netmiko ansible module: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`
+Sync netmiko: `{'result': 'Tiempo total: 0:00:29.834032'}`
+Async Multi-Thread netmiko: `{'result': 'Tiempo total: 0:00:06.886019'}`
+Non-Blocking Async netmiko: `{'result': 'Tiempo total: 0:00:07.685438'}`
+Ansible with sync_netmiko Ansible module: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`
+Ansible with async_netmiko Ansible module: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`
 
 Hope this helps in your automation journey  
 
