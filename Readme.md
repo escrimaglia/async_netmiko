@@ -42,7 +42,7 @@ From your CLI execute the following:
 
 In my case, to access devices in the Cloud EVE-NG simulator, I configured an SSH Bastion Host. Below is the JumpHost configuration, which might also be useful for others.
 
-```
+```ssh-config
 host jumphost  
   IdentityFile ~/.ssh/id_rsa  
   IdentitiesOnly yes  
@@ -56,7 +56,7 @@ host 10.2.0.*
   KexAlgorithms +diffie-hellman-group1-sha1  
   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc  
   HostKeyAlgorithms=+ssh-dss
-  ```
+```
 
 ### Running as an API endpoint
 
