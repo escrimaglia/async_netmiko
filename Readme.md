@@ -31,13 +31,13 @@ To conduct the test, I utilized the EVE-NG Pro simulator hosted on Google Cloud,
 > [!WARNING]
 > Python 3.12 has improved performance for the GIL and threading, but the fundamental limitations of the GIL remain.
 
-> [!IMPORTANT]
-> Device connection details and commands common to all scripts are contained in [Scripts/data.py](Scripts/data.py)
-
 ### Running as a script
 
 > [!NOTE]
 > To connect to the devices, I configured SSH Bastion Host on my Mac.
+
+> [!IMPORTANT]
+> Device connection details and commands common to all scripts are contained in [Scripts/data.py](Scripts/data.py)
 
 From your CLI execute the following:
 
