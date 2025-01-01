@@ -1,8 +1,8 @@
 # Async Netmiko Test
 
-![plot](imagen/netmiko.png)
+![Netmiko Logo](imagen/netmiko.png)
 
-## IaC - Infraestructure as Code
+## IaC - Infrastructure as Code
 
 It refers to the practice of managing and provisioning computing infrastructure (such as servers, networks, and databases) through code and automation rather than through manual processes. This allows infrastructure to be treated the same way as application code, enabling it to be versioned, tested, and deployed using software development practices.
 
@@ -29,7 +29,7 @@ To conduct the test, I utilized the EVE-NG Pro simulator hosted on Google Cloud,
 
 ### Running as script
 
-Note: To connect to the devices, I configured SSH Bastion Host on my Mac.
+[Note] To connect to the devices, I configured SSH Bastion Host on my Mac.
 
 From your CLI execute the following:
 
@@ -85,7 +85,7 @@ In the Ansible folder, you will find a playbook and two Ansible modules that can
 Note: to get the execution time of a playbook, enable the callback Timer in the `Ansible.cfg`  
 `callbacks_enabled = timer`
 
-For my playbook there is aprox 10 seconds it's takes to Ansible to executes the other tasks.
+For my playbook there is aprox 10 seconds it takes to Ansible to executes the other tasks.
 
 ### Results
 

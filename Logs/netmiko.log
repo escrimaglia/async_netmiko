@@ -28,3 +28,23 @@ INFO:paramiko.transport:Authentication (password) successful!
 INFO:paramiko.transport:Authentication (password) successful!
 INFO:paramiko.transport:Authentication (password) successful!
 INFO:paramiko.transport:Authentication (password) successful!
+ERROR:netmiko:Error connecting to X.X.X:X: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios X.X.X:X:22
+
+
+ERROR:netmiko:Error connecting to X.X.X:X: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios X.X.X:X:22
+
+

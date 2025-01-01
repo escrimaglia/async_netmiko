@@ -32,7 +32,7 @@ class SyncNetmiko:
 
     def run(self, data) -> dict:
         self.data_validation(data.devices, data.commands)
-        with open("../outputs/netmico_sync.log", "w") as f:
+        with open("../outputs/netmiko_sync.log", "w") as f:
             start = dt.now()
             for device in data.devices:
                 f.write(f"-> Host {device['host']}\n")
