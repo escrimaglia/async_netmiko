@@ -29,7 +29,8 @@ To conduct the test, I utilized the EVE-NG Pro simulator hosted on Google Cloud,
 
 ### Running as script
 
-Note: To connect to the devices, I configured SSH Bastion Host on my Mac.
+> [!NOTE]
+> To connect to the devices, I configured SSH Bastion Host on my Mac.
 
 From your CLI execute the following:
 
@@ -82,8 +83,11 @@ As mentioned earlier, `Ansible manages concurrency (forks)`, as demonstrated by 
 
 In the Ansible folder, you will find a playbook and two Ansible modules that can be swapped when executing the playbook (and check the differences). The modules are located in a subdirectory called `library`, as this is the simplest way for Ansible to locate the modules without requiring changes to its configuration.
 
-Note: to get the execution time of a playbook, enable the callback Timer in the `Ansible.cfg`  
-`callbacks_enabled = timer`
+> [!NOTE]
+> To get the execution time of a playbook, enable the callback Timer in the `ansible.cfg`  
+> ```ini
+> callbacks_enabled = timer
+> ```
 
 For my playbook there is aprox 10 seconds it's takes to Ansible to executes the other tasks.
 
