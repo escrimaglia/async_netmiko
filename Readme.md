@@ -1,6 +1,6 @@
 # Async Netmiko Test
 
-![Netmiko logo](imagen/netmiko.png)
+![Netmiko Logo](imagen/netmiko.png)
 
 ## IaC - Infrastructure as Code
 
@@ -94,6 +94,7 @@ In the [Ansible folder](Ansible), you will find a playbook and two Ansible modul
 > To get the execution time of a playbook, enable the callback Timer in the `ansible.cfg`
 > 
 > ```ini
+> [default]
 > callbacks_enabled = timer
 > ```
 
