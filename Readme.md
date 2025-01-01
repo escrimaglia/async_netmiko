@@ -84,7 +84,8 @@ As mentioned earlier, `Ansible manages concurrency (forks)`, as demonstrated by 
 In the Ansible folder, you will find a playbook and two Ansible modules that can be swapped when executing the playbook (and check the differences). The modules are located in a subdirectory called `library`, as this is the simplest way for Ansible to locate the modules without requiring changes to its configuration.
 
 > [!NOTE]
-> To get the execution time of a playbook, enable the callback Timer in the `ansible.cfg`  
+> To get the execution time of a playbook, enable the callback Timer in the `ansible.cfg`
+> 
 > ```ini
 > callbacks_enabled = timer
 > ```
