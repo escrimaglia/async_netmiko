@@ -1,6 +1,6 @@
 # Async Netmiko Test
 
-![plot](imagen/netmiko.png)
+![Netmiko logo](imagen/netmiko.png)
 
 ## IaC - Infrastructure as Code
 
