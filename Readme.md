@@ -27,6 +27,9 @@ To conduct the test, I utilized the EVE-NG Pro simulator hosted on Google Cloud,
 - Non-Blocking Async Mode: Uses an event loop to manage tasks cooperatively in a single thread. Tasks voluntarily yield control using await during I/O or other non-blocking operations. No threads are created; instead, the event loop interleaves tasks during await points and GIL is not an issue.
 - Python 3.12 has improved performance for the GIL and threading, but the fundamental limitations of the GIL remain.
 
+> [!IMPORTANT]
+> Device connection details and commands common to all scripts are contained in [Scripts/data.py](Scripts/data.py)
+
 ### Running as a script
 
 > [!NOTE]
