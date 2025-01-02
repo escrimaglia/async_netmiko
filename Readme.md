@@ -22,14 +22,22 @@ To conduct the test, I utilized the EVE-NG Pro simulator hosted on Google Cloud,
 
 #### Sync, Async Multi-Thread and Non-Blocking Async
 
-- Sync Mode: Tasks are executed sequentially, one after the other. Each task must complete before the next one starts. The program waits for a task to finish before moving on.
-- Async Multi-Thread Mode: Involves creating multiple threads within a process. Threads can run concurrently, sharing memory and resources. Python threads are managed by the OS, but the GIL (Global Interpreter Lock) restricts true parallel execution of Python in a single process at a time.
-- Non-Blocking Async Mode: Uses an event loop to manage tasks cooperatively in a single thread. Tasks voluntarily yield control using await during I/O or other non-blocking operations. No threads are created; instead, the event loop interleaves tasks during await points and GIL is not an issue.
-- Python 3.12 has improved performance for the GIL and threading, but the fundamental limitations of the GIL remain.
+| Mode                    | Description |
+| :---------------------- | :---------- |
+| Sync Mode               | Tasks are executed sequentially, one after the other. Each task must complete before the next one starts. The program waits for a task to finish before moving on. |
+| Async Multi-Thread Mode | Involves creating multiple threads within a process. Threads can run concurrently, sharing memory and resources. Python threads are managed by the OS, but the GIL (Global Interpreter Lock) restricts true parallel execution of Python in a single process at a time. |
+| Non-Blocking Async Mode | Uses an event loop to manage tasks cooperatively in a single thread. Tasks voluntarily yield control using await during I/O or other non-blocking operations. No threads are created; instead, the event loop interleaves tasks during await points and GIL is not an issue. |
 
-### Running as script
+> [!WARNING]
+> Python 3.12 has improved performance for the GIL and threading, but the fundamental limitations of the GIL remain.
 
-[Note] To connect to the devices, I configured SSH Bastion Host on my Mac.
+### Running as a script
+
+> [!NOTE]
+> To connect to the devices, I configured SSH Bastion Host on my Mac.
+
+> [!IMPORTANT]
+> Device connection details and commands common to all scripts are contained in [Scripts/data.py](Scripts/data.py)
 
 From your CLI execute the following:
 
@@ -41,7 +49,7 @@ From your CLI execute the following:
 
 In my case, to access devices in the Cloud EVE-NG simulator, I configured an SSH Bastion Host. Below is the JumpHost configuration, which might also be useful for others.
 
-```
+```ssh-config
 host jumphost  
   IdentityFile ~/.ssh/id_rsa  
   IdentitiesOnly yes  
@@ -55,7 +63,7 @@ host 10.2.0.*
   KexAlgorithms +diffie-hellman-group1-sha1  
   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc  
   HostKeyAlgorithms=+ssh-dss
-  ```
+```
 
 ### Running as an API endpoint
 
@@ -74,29 +82,35 @@ This project demonstrates how to integrate asynchronous Netmiko operations withi
 
 ### Ansible and Netmiko
 
-I have also added tests with Ansible to observe the behavior of Netmiko running as an `Ansible Module`. In addition to demonstrating how an ansible module is built, I thought it was worthwhile to conduct these tests since the results show how Ansible handles concurrency. Therefore, whether Netmiko runs synchronously or asynchronously becomes irrelevant.
+I have also added tests with Ansible to observe the behavior of Netmiko running as an `Ansible module`. In addition to demonstrating how an Ansible module is built, I thought it was worthwhile to conduct these tests since the results show how Ansible handles concurrency. Therefore, whether Netmiko runs synchronously or asynchronously becomes irrelevant.
 
-Why would one run Netmiko as an `ansible module` when there are so many modules available in the community? In most cases, you can probably find an existing module that fits your needs. However, I have personally had to create my own modules to automate older devices, such as Siemens industrial equipment or Cisco Systems' legacy yet still operational Wireless LAN Controllers.
+Why would one run Netmiko as an `Ansible module` when there are so many modules available in the community? In most cases, you can probably find an existing module that fits your needs. However, I have personally had to create my own modules to automate older devices, such as Siemens industrial equipment or Cisco Systems' legacy yet still operational Wireless LAN Controllers.
 
 As mentioned earlier, `Ansible manages concurrency (forks)`, as demonstrated by the test results.
 
-In the Ansible folder, you will find a playbook and two Ansible modules that can be swapped when executing the playbook (and check the differences). The modules are located in a subdirectory called `library`, as this is the simplest way for Ansible to locate the modules without requiring changes to its configuration.
+In the [Ansible folder](Ansible), you will find a playbook and two Ansible modules that can be swapped when executing the playbook (and check the differences). The modules are located in a subdirectory called [`library`](Ansible/library), as this is the simplest way for Ansible to locate the modules without requiring changes to its configuration.
 
-Note: to get the execution time of a playbook, enable the callback Timer in the `Ansible.cfg`  
-`[default]`  
-`callbacks_enabled = timer`
+> [!NOTE]
+> To get the execution time of a playbook, enable the callback Timer in the `ansible.cfg`
+> 
+> ```ini
+> [default]
+> callbacks_enabled = timer
+> ```
 
-For my playbook there is aprox 10 seconds it takes to Ansible to executes the other tasks.
+When running this playbook, it takes approximately 10 seconds for Ansible to execute the other tasks.
 
 ### Results
 
-#### Test time for five devices and two commands per device
+**Test time for five devices and two commands per device:**
 
-Sync netmiko: `{'result': 'Tiempo total: 0:00:29.834032'}`  
-Async Multi-Thread netmiko: `{'result': 'Tiempo total: 0:00:06.886019'}`  
-Non-Blocking Async netmiko: `{'result': 'Tiempo total: 0:00:07.685438'}`  
-Ansible with sync_netmiko ansible mudule: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`  
-Ansible with async_netmiko ansible module: `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds`
+| Test | Run Time |
+| :--- | :------- |
+| Sync netmiko                              | `{'result': 'Tiempo total: 0:00:29.834032'}` |
+| Async Multi-Thread netmiko                | `{'result': 'Tiempo total: 0:00:06.886019'}` |
+| Non-Blocking Async netmiko                | `{'result': 'Tiempo total: 0:00:07.685438'}` |
+| Ansible with sync_netmiko Ansible module  | `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds` |
+| Ansible with async_netmiko Ansible module | `Playbook run took 0 days, 0 hours, 0 minutes, 19 seconds` |
 
 Hope this helps in your automation journey  
 
