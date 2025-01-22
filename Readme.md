@@ -73,9 +73,8 @@ I configured a FastAPI project with two endpoints:
 - `/api/v1/netmiko/nb-async` demonstrates non-blocking asynchronous operations.
 - `/api/v1/netmiko/sync` demonstrates synchronous operations.
 
-To launch the application, execute the following command in your CLI:
+To launch the application, execute the following command in your CLI  (First, move to the FastApi directory):
 
-- `cd /FastApi`
 - `uvicorn controller:app --reload`
 - `localhost:8000/docs`
 
