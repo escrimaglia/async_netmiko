@@ -75,6 +75,7 @@ I configured a FastAPI project with two endpoints:
 
 To launch the application, execute the following command in your CLI:
 
+- `cd /FastApi`
 - `uvicorn controller:app --reload`
 - `localhost:8000/docs`
 
